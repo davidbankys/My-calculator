@@ -46,17 +46,17 @@ class ViewController: UIViewController {
     }
     //devide Function
     
-    @IBAction func Devide(_ sender: Any) {
+    @IBAction func Divide(_ sender: Any) {
         printString(value: "/")
     }
     
     //Multiplication function
-    @IBAction func Mul(_ sender: Any) {
+    @IBAction func Multiplication(_ sender: Any) {
         printString(value: "*")
     }
     
     //subtraction function
-    @IBAction func Minus(_ sender: Any) {
+    @IBAction func Subtraction(_ sender: Any) {
         printString(value: "-")
     }
     
