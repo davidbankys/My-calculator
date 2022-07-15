@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         clearAll()
     }
+    //clear all the text from answer label as well as value label
     func clearAll()
     {
         calc = ""
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     @IBAction func AllDelete(_ sender: Any) {
         clearAll()
     }
-    
+    //Delete last digit of number
     @IBAction func LastDigitDelete(_ sender: Any) {
         if (!calc.isEmpty)
         {
@@ -37,36 +38,34 @@ class ViewController: UIViewController {
             CalculatorAnswer.text = ""
         }
     }
+    //Print number and equition
     func printString(value: String)
     {
         calc = calc + value
         CalculatorDemo.text = calc
     }
-    
-    @IBAction func Modulo(_ sender: Any) {
-        printString(value: "%")
-    }
-    
+    //devide Function
     
     @IBAction func Devide(_ sender: Any) {
         printString(value: "/")
     }
     
+    //Multiplication function
     @IBAction func Mul(_ sender: Any) {
         printString(value: "*")
     }
     
-    
+    //subtraction function
     @IBAction func Minus(_ sender: Any) {
         printString(value: "-")
     }
     
-    
+    //Addition function
     @IBAction func Addition(_ sender: Any) {
         printString(value: "+")
     }
-    
-    
+
+//equal button check
     @IBAction func Equal(_ sender: Any) {
         if(validInput())
         {
@@ -80,6 +79,7 @@ class ViewController: UIViewController {
             self.present(alert,animated: true ,completion: nil)
         }
         }
+    //validate the input is correct or not
     func validInput() -> Bool{
         var num = 0
         var numIndex = [Int]()
@@ -113,6 +113,7 @@ class ViewController: UIViewController {
         }
         return true
     }
+    // count the operation symbol
     func charactorCount (char: Character) ->Bool
     {
         if(char == "*")
@@ -133,6 +134,7 @@ class ViewController: UIViewController {
         }
         return false
     }
+    //result from the operation
     func formatResult(result: Double) -> String
     {
         if (result.truncatingRemainder(dividingBy: 1) == 0)
@@ -195,7 +197,47 @@ class ViewController: UIViewController {
         printString(value: "0")
     }
     
+    //finding square root
+    @IBAction func squreroot(_ sender: Any) {
+        let sqrtans = sqrt(Double(CalculatorDemo.text ?? "") ?? 0);
+        CalculatorAnswer.text = String(sqrtans)
+   }
+    //finding square
+    @IBAction func squre(_ sender: Any) {
+       
+        let sqr = (Double(CalculatorDemo.text ?? "") ?? 0) * (Double(CalculatorDemo.text ?? "") ?? 0);
+        CalculatorAnswer.text = String(sqr)
+        
+    }
+    //finding cube
+    @IBAction func cube(_ sender: Any) {
+        let cube = (Double(CalculatorDemo.text ?? "") ?? 0) * (Double(CalculatorDemo.text ?? "") ?? 0)
+        * (Double(CalculatorDemo.text ?? "") ?? 0);
+        CalculatorAnswer.text = String(cube)
+    }
     
+    //finding tan
+    
+
+    @IBAction func tanans(_ sender: Any) {
+        let tanAns = (Double(CalculatorDemo.text ?? "") ?? 0)
+        CalculatorAnswer.text = String(tan(tanAns))
+    }
+    
+    
+    //finding cos math
+    @IBAction func cosresult(_ sender: Any) {
+                let cosAns = (Double(CalculatorDemo.text ?? "") ?? 0)
+                CalculatorAnswer.text = String(cos(cosAns))
+    }
+    //finding sin math
+    @IBAction func sinresult(_ sender: Any) {
+        let sinAns = (Double(CalculatorDemo.text ?? "") ?? 0)
+              CalculatorAnswer.text = String(sin(sinAns))
+    }
     
 }
+    
+    
+
 
